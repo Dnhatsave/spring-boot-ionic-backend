@@ -1,11 +1,14 @@
 package com.sydevelop.cursomc.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import com.sydevelop.cursomc.domain.Categoria;
 import com.sydevelop.cursomc.repositories.CategoriaRepository;
+import com.sydevelop.cursomc.services.exceptions.ObjectNotFoundException;
+
 
 @Service
 public class CategoriaService {
@@ -15,7 +18,9 @@ public class CategoriaService {
 	
 	public Categoria buscar(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
-		return obj.orElse(null);
+		
+		return obj.orElseThrow( ()-> new ObjectNotFoundException("Objecto nao encontrado! Id" + id
+				+ "Tipo:" + Categoria.class.getName()));
 	}
 
 }

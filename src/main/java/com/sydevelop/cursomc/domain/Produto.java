@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 public class Produto implements Serializable {
@@ -23,6 +25,11 @@ public class Produto implements Serializable {
 	private String nome;
 	private Double preco;
 	
+	    /**  Omitir o error ciclico 
+	     * rotornar apenas os produtos 
+	     * das categorias selecionada usando JsonBackReferencea
+	    **/
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA", 
 		joinColumns = @JoinColumn(name="produto_id"),
