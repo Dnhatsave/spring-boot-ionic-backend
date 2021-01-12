@@ -29,8 +29,6 @@ public class Produto implements Serializable {
 	private Double preco;
 	
 	    /**  Omitir o error ciclico 
-	     * rotornar apenas os produtos 
-	     * das categorias selecionada usando JsonBackReferencea
 	    **/
 	@JsonIgnore
 	@ManyToMany
