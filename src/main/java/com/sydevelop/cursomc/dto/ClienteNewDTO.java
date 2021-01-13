@@ -2,21 +2,42 @@ package com.sydevelop.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import com.sydevelop.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 	static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
 	private String nome;
+	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
+	@Email
 	private String email;
-	private String cpfOuCpnj;
+	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
+	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
 	private String logradouro;
+	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
 	private String numero;
+	
 	private String complemento;
 	private String bairro;
+	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
 	private String cep;
 	
+	@NotEmpty(message = "Campo de carracter obrigatorio")
 	private String telefone1;
+	
 	private String telefone2;
 	
 	private Integer cidadeId;
@@ -41,12 +62,12 @@ public class ClienteNewDTO implements Serializable {
 		this.email = email;
 	}
 
-	public String getCpfOuCpnj() {
-		return cpfOuCpnj;
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
 	}
 
-	public void setCpfOuCpnj(String cpfOuCpnj) {
-		this.cpfOuCpnj = cpfOuCpnj;
+	public void setCpfOuCpnj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
 	public Integer getTipo() {
