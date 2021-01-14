@@ -62,6 +62,8 @@ public class BDService {
 		Categoria cat6 = new Categoria(null, "Moda");
 		Categoria cat7 = new Categoria(null, "Danca");
 		Categoria cat8 = new Categoria(null, "Musica");
+		Categoria cat9 = new Categoria(null, "Teste");
+
 		
 		Produto p1 = new Produto(null, "Computador", 25000.00);
 		Produto p2 = new Produto(null, "Impressoar", 2500.00);
@@ -84,6 +86,9 @@ public class BDService {
 		cat5.getProdutos().addAll(Arrays.asList(p8));
 		cat6.getProdutos().addAll(Arrays.asList(p9, p10));
 		cat7.getProdutos().addAll(Arrays.asList(p11));
+		cat8.getProdutos().addAll(Arrays.asList(p11));
+
+		
 
 		//adicionar categorias a produtos
 		p1.getCategorias().addAll(Arrays.asList(cat1, cat4));
@@ -98,7 +103,7 @@ public class BDService {
 		p10.getCategorias().addAll(Arrays.asList(cat6));
 		p11.getCategorias().addAll(Arrays.asList(cat7));		
 		
-		categoriaRepository.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8));
+		categoriaRepository.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,cat9));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 		
 		Estado est1 = new Estado(null, "Minas Gerais");
